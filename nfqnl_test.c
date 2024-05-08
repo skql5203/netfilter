@@ -135,6 +135,10 @@ static int cb(struct nfq_q_handle *qh, struct nfgenmsg *nfmsg,
 
 int main(int argc, char **argv)
 {
+	if (argc != 2) {
+        printf("Usage: %s gilgil.net\nPlease do not include http://\n", argv[0]);
+        return 1;
+	}
 	struct nfq_handle *h;
 	struct nfq_q_handle *qh;
 	struct nfnl_handle *nh;
