@@ -95,7 +95,7 @@ static u_int32_t print_pkt (struct nfq_data *tb)
 
 						for(int j=0;j<=idxx;j++){
 
-							if (!strncmp(name, block[j],strlen(block[j])))
+							if (!strncmp(name, block[j],strlen(block[j])+1)) // gilgil.net.com 이라고 해도 \x00이랑 .이랑 비교하게 함.
 							{
 								on = 0;
 
