@@ -87,7 +87,7 @@ static u_int32_t print_pkt (struct nfq_data *tb)
 				
 				printf("http_len = %d\n",http_len);
 				if((!memcmp(http, "GET", 3) ||!memcmp(http, "POST", 4))&&http_len!=0){
-					dump((unsigend char *)tcp+(tcp->th_off<<2),http_len);
+					dump((unsigned char *)tcp+(tcp->th_off<<2),http_len);
 					unsigned char * name = strstr(http, "Host: ");
 					if (name) {
 						name = strtok(name + 6, "\r\n");
@@ -105,7 +105,7 @@ static u_int32_t print_pkt (struct nfq_data *tb)
 						}
 					}
 				}
-				else if(!memcmp(http,"HTTP",4)) dump((unsigend char *)tcp+(tcp->th_off<<2),http_len);
+				else if(!memcmp(http,"HTTP",4)) dump((unsigned char *)tcp+(tcp->th_off<<2),http_len);
 			}
 
 		}
