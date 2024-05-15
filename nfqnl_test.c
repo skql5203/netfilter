@@ -86,7 +86,7 @@ static u_int32_t print_pkt (struct nfq_data *tb)
 				
 				
 				printf("http_len = %d\n",http_len);
-				if(strncmp(http, "GET", 4) && strncmp(http, "PUT", 4) && strncmp(http, "DELETE", 7) && strncmp(http, "POST", 5)&& strncmp(http, "OPTIONS", 8) && strncmp(http, "HEAD", 5)  &&  strncmp(http, "PATCH", 6) && strncmp(http, "CONNECT", 8) && strncmp(http, "TRACE", 6)){
+				if(!strncmp(http, "GET", 4) ||!strncmp(http, "POST", 5)){
 
 					unsigned char * name = strstr(http, "Host: ");
 					if (name) {
